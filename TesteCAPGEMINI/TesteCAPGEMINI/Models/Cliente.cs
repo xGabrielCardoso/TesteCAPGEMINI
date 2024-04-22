@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -16,39 +17,46 @@ public partial class Cliente
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Nome")]
     public string Nome { get; set; }
-
+    [DisplayName("Idade")]
     public int Idade { get; set; }
 
     [Required]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("CPF")]
     public string Documento { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Endereço")]
     public string Endereco { get; set; }
 
     [Required]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Bairro")]
     public string Bairro { get; set; }
 
     [Required]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Estado")]
     public string Estado { get; set; }
 
     [Required]
     [Column("UF")]
     [StringLength(2)]
     [Unicode(false)]
+    [DisplayName("UF")]
     public string Uf { get; set; }
 
     [Required]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Celular")]
     public string Celular { get; set; }
 
     [InverseProperty("IdClienteNavigation")]

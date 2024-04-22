@@ -6,7 +6,7 @@ namespace TesteCAPGEMINI.Controllers
 {
     public class ClienteController : Controller
     {
-        private ClienteService oClienteService = new ClienteService();  
+        private ClienteService oClienteService = new ClienteService();
         public IActionResult Index()
         {
             List<Cliente> oListCliente = oClienteService.oRepositoryCliente.SelecionarTodos();
@@ -27,13 +27,33 @@ namespace TesteCAPGEMINI.Controllers
             }
 
             oClienteService.oRepositoryCliente.Incluir(model);
-
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View();
+            Cliente oCliente = oClienteService.oRepositoryCliente.SelecionarPk(id);
+            return View(oCliente);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            Cliente oCliente = oClienteService.oRepositoryCliente.SelecionarPk(id);
+            return View(oCliente);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Cliente model)
+        {
+            Cliente oCliente = oClienteService.oRepositoryCliente.Alterar(model);
+            int id = oCliente.Id;
+            return RedirectToAction("Details", new { id });
+        }
+
+        public IActionResult Delete(int id)
+        {
+            oClienteService.oRepositoryCliente.Excluir(id);
+            return RedirectToAction("Index");
         }
     }
 }

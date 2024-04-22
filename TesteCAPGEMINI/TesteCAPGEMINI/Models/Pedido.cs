@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -13,25 +14,31 @@ public partial class Pedido
     [Key]
     public int Id { get; set; }
 
+    [DisplayName("Id do Cliente")]
     public int IdCliente { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Nome do Cliente")]
     public string NomeCliente { get; set; }
 
+    [DisplayName("Id do Produto")]
     public int IdProduto { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Nome do Produto")]
     public string NomeProduto { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Endereço de Entrega")]
     public string EnderecoEntrega { get; set; }
 
+    [DisplayName("Preço Total")]
     public int PrecoTotal { get; set; }
 
     [ForeignKey("IdCliente")]

@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -16,32 +17,40 @@ public partial class Produto
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Id do Cliente")]
     public string Nome { get; set; }
 
+    [DisplayName("Idade")]
     public int? Idade { get; set; }
 
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Peso")]
     public string Peso { get; set; }
 
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Linha da Ração")]
     public string Linha { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Pet")]
     public string Pet { get; set; }
 
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Porte da Raça")]
     public string PorteRaca { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
+    [DisplayName("Sabor")]
     public string Sabor { get; set; }
 
+    [DisplayName("Preço")]
     public int Preco { get; set; }
 
     [InverseProperty("IdProdutoNavigation")]
