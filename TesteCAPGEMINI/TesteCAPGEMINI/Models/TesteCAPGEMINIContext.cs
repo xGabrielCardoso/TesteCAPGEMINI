@@ -23,33 +23,40 @@ public partial class TesteCAPGEMINIContext : DbContext
 
     public virtual DbSet<Produto> Produtos { get; set; }
 
+    public virtual DbSet<VwPedido> VwPedidos { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=Gabriel-PC;Initial Catalog=TesteCAPGEMINI;User ID=sa;Password=123456");
+        => optionsBuilder.UseSqlServer("Data Source=Gabriel-PC;Initial Catalog=TesteCAPGEMINI;User ID=sa;Password=123456;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Clientes__3214EC07242DB965");
+            entity.HasKey(e => e.Id).HasName("PK__Clientes__3214EC0786911590");
         });
 
         modelBuilder.Entity<Pedido>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Pedidos__3214EC077CEC4B18");
+            entity.HasKey(e => e.Id).HasName("PK__Pedidos__3214EC07A344C43C");
 
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Pedidos)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Pedidos__IdClien__619B8048");
+                .HasConstraintName("FK__Pedidos__IdClien__6FE99F9F");
 
             entity.HasOne(d => d.IdProdutoNavigation).WithMany(p => p.Pedidos)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Pedidos__IdProdu__628FA481");
+                .HasConstraintName("FK__Pedidos__IdProdu__70DDC3D8");
         });
 
         modelBuilder.Entity<Produto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Produtos__3214EC07E11F71FD");
+            entity.HasKey(e => e.Id).HasName("PK__Produtos__3214EC076B12A9AF");
+        });
+
+        modelBuilder.Entity<VwPedido>(entity =>
+        {
+            entity.ToView("VW_Pedidos");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -25,6 +25,10 @@
       {
          "Name": "[dbo].[Produtos]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VW_Pedidos]",
+         "ObjectType": 3
       }
    ],
    "UiHint": null,

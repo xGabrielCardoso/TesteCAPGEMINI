@@ -19,14 +19,15 @@ public partial class Cliente
     [Unicode(false)]
     [DisplayName("Nome")]
     public string Nome { get; set; }
-    [DisplayName("Idade")]
-    public int Idade { get; set; }
+
+    public int? Idade { get; set; }
 
     [Required]
-    [StringLength(50)]
+    [Column("CPF")]
+    [StringLength(15)]
     [Unicode(false)]
     [DisplayName("CPF")]
-    public string Documento { get; set; }
+    public string Cpf { get; set; }
 
     [Required]
     [StringLength(255)]
@@ -37,13 +38,11 @@ public partial class Cliente
     [Required]
     [StringLength(50)]
     [Unicode(false)]
-    [DisplayName("Bairro")]
     public string Bairro { get; set; }
 
     [Required]
     [StringLength(50)]
     [Unicode(false)]
-    [DisplayName("Estado")]
     public string Estado { get; set; }
 
     [Required]
@@ -56,7 +55,6 @@ public partial class Cliente
     [Required]
     [StringLength(50)]
     [Unicode(false)]
-    [DisplayName("Celular")]
     public string Celular { get; set; }
 
     [InverseProperty("IdClienteNavigation")]

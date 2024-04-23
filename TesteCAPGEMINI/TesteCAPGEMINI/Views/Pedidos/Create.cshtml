@@ -1,0 +1,241 @@
+﻿@model PedidoViewModel
+
+<h4>Pedido</h4>
+
+<h4>Preencha as informações abaixo para criar um pedido</h4>
+<hr />
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Voltar</a>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div hidden  class="form-group">
+                <input id="idCliente" asp-for="IdCliente" class="form-control" />
+            </div>
+
+            <div hidden  class="form-group">
+                <input id="idProduto" asp-for="IdProduto" class="form-control" />
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-header">Cliente</div>
+                <div class="card-body">
+                    <table id="listClienteTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Nome)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Cpf)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Celular)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.oListCliente)
+                            {
+                                <tr onclick="CapturaIdCliente('@item.Id')">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cpf)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Celular)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+
+                <div class="card-header">Produto</div>
+                <div class="card-body">
+
+                    <table id="listProdutoTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oProduto.Nome)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oProduto.Idade)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oProduto.Sabor)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oProduto.Pet)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oProduto.Peso)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oProduto.Preco)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.oListProduto)
+                            {
+                                <tr onclick="CapturaIdProduto('@item.Id')">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Idade)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sabor)
+                                    </td>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.Pet)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.Peso)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.Preco)
+                                    </th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card">
+                <div class="card-header">Dados Complementares</div>
+                <div class="card-body">
+
+                    <div class="col-md">
+
+                        <div class="form-group">
+                            <label asp-for="oVwPedido.EnderecoEntrega" class="control-label"></label>
+                            <input asp-for="oVwPedido.EnderecoEntrega" class="form-control" />
+                            <span asp-validation-for="oVwPedido.EnderecoEntrega" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md">
+
+                        <div class="form-group">
+                            <label asp-for="oVwPedido.Status" class="control-label"></label>
+                            <input readonly asp-for="oVwPedido.Status" class="form-control" />
+                            <span asp-validation-for="oVwPedido.Status" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="oVwPedido.ValorFrete" class="control-label"></label>
+                            <input readonly asp-for="oVwPedido.ValorFrete" class="form-control" />
+                            <span asp-validation-for="oVwPedido.ValorFrete" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="oVwPedido.ValorTotal" class="control-label"></label>
+                            <input readonly asp-for="oVwPedido.ValorTotal" class="form-control" />
+                            <span asp-validation-for="oVwPedido.ValorTotal" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+@section Scripts
+{
+    <script>
+
+        $('#listClienteTable').DataTable({
+
+        });
+
+        $('#listProdutoTable').DataTable({
+
+        });
+
+
+        //Tabela de Clientes
+        const table = new DataTable('#listClienteTable');
+
+        table.on('click', 'tbody tr', (e) => {
+            let classList = e.currentTarget.classList;
+
+            if (classList.contains('selected')) {
+                classList.remove('selected');
+            }
+            else {
+                table.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                classList.add('selected');
+            }
+        });
+
+
+        //Tabela de Produtos
+        const tableProduto = new DataTable('#listProdutoTable');
+
+        tableProduto.on('click', 'tbody tr', (e) => {
+            let classList = e.currentTarget.classList;
+
+            if (classList.contains('selected')) {
+                classList.remove('selected');
+            }
+            else {
+                tableProduto.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                classList.add('selected');
+            }
+        });
+
+
+        function CapturaIdCliente(idCliente) {
+            document.getElementById('idCliente').value = idCliente;
+        }
+
+
+        function CapturaIdProduto(idProduto) {
+            document.getElementById('idProduto').value = idProduto;
+        }
+
+
+    </script>
+}

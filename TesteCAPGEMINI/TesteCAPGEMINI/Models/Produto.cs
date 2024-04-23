@@ -17,11 +17,11 @@ public partial class Produto
     [Required]
     [StringLength(255)]
     [Unicode(false)]
-    [DisplayName("Id do Cliente")]
     public string Nome { get; set; }
 
-    [StringLength(20)]
+    [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Faixa Etária")]
     public string Idade { get; set; }
 
     [StringLength(255)]
@@ -30,13 +30,11 @@ public partial class Produto
 
     [StringLength(255)]
     [Unicode(false)]
-    [DisplayName("Linha da Ração")]
     public string Linha { get; set; }
 
     [Required]
     [StringLength(255)]
     [Unicode(false)]
-    [DisplayName("Pet")]
     public string Pet { get; set; }
 
     [StringLength(255)]
@@ -47,10 +45,12 @@ public partial class Produto
     [Required]
     [StringLength(255)]
     [Unicode(false)]
-    [DisplayName("Sabor")]
     public string Sabor { get; set; }
-    [DisplayFormat()]
-    public double? Preco { get; set; }
+
+    [StringLength(30)]
+    [Unicode(false)]
+    [DisplayName("Preço")]
+    public string Preco { get; set; }
 
     [InverseProperty("IdProdutoNavigation")]
     public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();

@@ -9,9 +9,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TesteCAPGEMINI.Models;
 
-public partial class Pedido
+public partial class VwPedido
 {
-    [Key]
+    [Required]
+    [StringLength(255)]
+    [Unicode(false)]
+    [DisplayName("Nome do Cliente")]
+    public string NomeCliente { get; set; }
+
+    [Required]
+    [Column("CPF")]
+    [StringLength(15)]
+    [Unicode(false)]
+    [DisplayName("CPF")]
+    public string Cpf { get; set; }
+
+    [Required]
+    [StringLength(255)]
+    [Unicode(false)]
+    [DisplayName("Nome do Produto")]
+    public string NomeProduto { get; set; }
+
     public int Id { get; set; }
 
     public int IdCliente { get; set; }
@@ -28,21 +46,9 @@ public partial class Pedido
     [Unicode(false)]
     public string Status { get; set; }
 
-    [StringLength(30)]
-    [Unicode(false)]
     [DisplayName("Valor do Frete")]
     public string ValorFrete { get; set; }
 
-    [StringLength(30)]
-    [Unicode(false)]
     [DisplayName("Valor Total")]
     public string ValorTotal { get; set; }
-
-    [ForeignKey("IdCliente")]
-    [InverseProperty("Pedidos")]
-    public virtual Cliente IdClienteNavigation { get; set; }
-
-    [ForeignKey("IdProduto")]
-    [InverseProperty("Pedidos")]
-    public virtual Produto IdProdutoNavigation { get; set; }
 }
