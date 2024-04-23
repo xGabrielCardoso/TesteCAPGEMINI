@@ -4,12 +4,11 @@ Avaliação da CAPGEMINI
 🚀 Começando
 Para começar executar o app será necessário fazer um clone do projeto, na pasta que desejar, você pode utilizar o link abaixo:
 https://github.com/xGabrielCardoso/TesteCAPGEMINI.git
-Ou então .. Baixe como Zip e execute na sua máquina.
-
-Consulte Implantação para saber como implantar o projeto.
+Ou então .. Baixe o projeto como Zip. Consulte Implantação para saber como implantar o projeto.
+Na pasta enviada ao recrutador contém o arquivo para criação da base de dados com alguns registros fictícios para iniciar. 
 
 📋 Pré-requisitos
-De que coisas você precisa para instalar o software e como instalá-lo?
+Para que o software funcione sem problemas, será necessário fazer a conexão com o banco de dados.
 
 Dar exemplos
 🔧 Instalação
