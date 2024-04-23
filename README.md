@@ -5,14 +5,16 @@ Avaliação da CAPGEMINI
 Para começar executar o app será necessário fazer um clone do projeto, na pasta que desejar, você pode utilizar o link abaixo:
 https://github.com/xGabrielCardoso/TesteCAPGEMINI.git
 Ou então .. Baixe o projeto como Zip. Consulte Implantação para saber como implantar o projeto.
-Na pasta enviada ao recrutador contém o arquivo para criação da base de dados com alguns registros fictícios para iniciar. 
+
 
 📋 Pré-requisitos
-Para que o software funcione sem problemas, será necessário fazer a conexão com o banco de dados.
+Para que o software funcione sem problemas, será necessário fazer a conexão com o banco de dados.Na pasta enviada ao recrutador 
+contém um arquivo .sql para criação da base de dados, nele existem alguns registros fictícios para iniciar. 
 
 Dar exemplos
 🔧 Instalação
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
+Após a criação da base de dados pelo arquivo, é hora de configurar a "Connection String" no código Asp.net.
+Aponte para a base que foi criada.
 
 Diga como essa etapa será:
 
