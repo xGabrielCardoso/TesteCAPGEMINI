@@ -25,7 +25,6 @@ public partial class Produto
 
     [StringLength(255)]
     [Unicode(false)]
-    [DisplayName("Peso")]
     public string Peso { get; set; }
 
     [StringLength(255)]
