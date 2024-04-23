@@ -24,41 +24,16 @@ Para testar o projeto você pode começar criando Novos Produtos e/ou Novos Clie
 cliente na tela de Pedidos, para criar um novo pedido você irá clicar em "Novo Pedido" e então , Selecionar o Cliente e então o 
 Produto, para selecionar clique sobre os itens listados, Insira o Endereço para a Entrega e clique em "Criar Pedido".
 
-🔩 Analise os testes de ponta a ponta
-Explique que eles verificam esses testes e porquê.
-
-Dar exemplos
-⌨️ E testes de estilo de codificação
-Explique que eles verificam esses testes e porquê.
-
-Dar exemplos
-📦 Implantação
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
 
 🛠️ Construído com
-Mencione as ferramentas que você usou para criar seu projeto
+Asp.Net Core MVC. - O framework web usado.
+EF Core. - Gerente de Dependência.
+Razor. - Usada para gerar as telas.
 
-Dropwizard - O framework web usado
-Maven - Gerente de Dependência
-ROME - Usada para gerar RSS
-🖇️ Colaborando
-Por favor, leia o COLABORACAO.md para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
 
 📌 Versão
-Nós usamos SemVer para controle de versão. Para as versões disponíveis, observe as tags neste repositório.
+Usei o Git para controle de versão.
 
 ✒️ Autores
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
+Gabriel Fonseca Cardoso
 
-Um desenvolvedor - Trabalho Inicial - umdesenvolvedor
-Fulano De Tal - Documentação - fulanodetal
-Você também pode ver a lista de todos os colaboradores que participaram deste projeto.
-
-📄 Licença
-Este projeto está sob a licença (sua licença) - veja o arquivo LICENSE.md para detalhes.
-
-🎁 Expressões de gratidão
-Conte a outras pessoas sobre este projeto 📢;
-Convide alguém da equipe para uma cerveja 🍺;
-Um agradecimento publicamente 🫂;
-etc.
