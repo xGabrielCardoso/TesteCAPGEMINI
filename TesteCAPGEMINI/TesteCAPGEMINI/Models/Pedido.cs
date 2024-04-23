@@ -38,8 +38,8 @@ public partial class Pedido
     [DisplayName("Endereço de Entrega")]
     public string EnderecoEntrega { get; set; }
 
-    [DisplayName("Preço Total")]
-    public int PrecoTotal { get; set; }
+    [Column(TypeName = "decimal(10, 2)")]
+    public decimal? PrecoTotal { get; set; }
 
     [ForeignKey("IdCliente")]
     [InverseProperty("Pedidos")]

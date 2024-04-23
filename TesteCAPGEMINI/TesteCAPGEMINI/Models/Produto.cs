@@ -20,8 +20,9 @@ public partial class Produto
     [DisplayName("Id do Cliente")]
     public string Nome { get; set; }
 
-    [DisplayName("Idade")]
-    public int? Idade { get; set; }
+    [StringLength(20)]
+    [Unicode(false)]
+    public string Idade { get; set; }
 
     [StringLength(255)]
     [Unicode(false)]
@@ -48,9 +49,8 @@ public partial class Produto
     [Unicode(false)]
     [DisplayName("Sabor")]
     public string Sabor { get; set; }
-
-    [DisplayName("Preço")]
-    public int Preco { get; set; }
+    [DisplayFormat()]
+    public double? Preco { get; set; }
 
     [InverseProperty("IdProdutoNavigation")]
     public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();

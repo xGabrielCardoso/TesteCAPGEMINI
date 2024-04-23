@@ -1,0 +1,99 @@
+﻿@model TesteCAPGEMINI.Models.Produto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Novo Produto</h1>
+
+<h4>Preencha os campos abaixo para cadastrar um novo Produto.</h4>
+<hr />
+<div>
+    <a class="btn btn-primary" asp-action="Index">Voltar</a>
+</div>
+<br />
+<div class="row">
+    <div class="col-md">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="card">
+                <div class="card-header">Informações Básicas</div>
+                <div class="card-body row">
+                    <div class="col-md">
+
+                        <div class="form-group">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Idade" class="control-label"></label>
+                            <input asp-for="Idade" class="form-control" />
+                            <span asp-validation-for="Idade" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md">
+
+                        <div class="form-group">
+                            <label asp-for="Sabor" class="control-label"></label>
+                            <input asp-for="Sabor" class="form-control" />
+                            <span asp-validation-for="Sabor" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Pet" class="control-label"></label>
+                            <input asp-for="Pet" class="form-control" />
+                            <span asp-validation-for="Pet" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-header">Informações Complementares</div>
+                <div class="card-body row">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="Peso" class="control-label"></label>
+                            <input asp-for="Peso" class="form-control" />
+                            <span asp-validation-for="Peso" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Linha" class="control-label"></label>
+                            <input asp-for="Linha" class="form-control" />
+                            <span asp-validation-for="Linha" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="PorteRaca" class="control-label"></label>
+                            <input asp-for="PorteRaca" class="form-control" />
+                            <span asp-validation-for="PorteRaca" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Preco" class="control-label"></label>
+                            <input asp-for="Preco" class="form-control" />
+                            <span asp-validation-for="Preco" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
