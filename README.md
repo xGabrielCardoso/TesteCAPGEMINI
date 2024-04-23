@@ -1,5 +1,7 @@
-Título do projeto:
-Avaliação da CAPGEMINI
+Título do projeto: Avaliação da CAPGEMINI
+
+A finalidade desse projeto é o lojista, de qualquer ramo profissional, poder fazer o registro da saída de produtos, e ter o histórico
+do cliente que comprou.
 
 🚀 Começando
 Para começar executar o app será necessário fazer um clone do projeto, na pasta que desejar, você pode utilizar o link abaixo:
@@ -11,21 +13,16 @@ Ou então .. Baixe o projeto como Zip. Consulte Implantação para saber como im
 Para que o software funcione sem problemas, será necessário fazer a conexão com o banco de dados.Na pasta enviada ao recrutador 
 contém um arquivo .sql para criação da base de dados, nele existem alguns registros fictícios para iniciar. 
 
-Dar exemplos
+
 🔧 Instalação
 Após a criação da base de dados pelo arquivo, é hora de configurar a "Connection String" no código Asp.net.
-Aponte para a base que foi criada.
+Aponte para a base que foi criada. Para isso você deverá abrir o arquivo TesteCAPGEMINIContext.cs dentro da pasta "Models".
 
-Diga como essa etapa será:
-
-Dar exemplos
-E repita:
-
-Até finalizar
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
 
 ⚙️ Executando os testes
-Explicar como executar os testes automatizados para este sistema.
+Para testar o projeto você pode começar criando Novos Produtos e/ou Novos Clientes, após isso , podemos linkar o produto com o 
+cliente na tela de Pedidos, para criar um novo pedido você irá clicar em "Novo Pedido" e então , Selecionar o Cliente e então o 
+Produto, para selecionar clique sobre os itens listados, Insira o Endereço para a Entrega e clique em "Criar Pedido".
 
 🔩 Analise os testes de ponta a ponta
 Explique que eles verificam esses testes e porquê.
